@@ -48,4 +48,8 @@ export class UserService {
   async findAll(){
     return await this.userModel.find();
   }
+
+  middlewareFunction(){
+    console.log("I'm the User Service")
+  }
 }
