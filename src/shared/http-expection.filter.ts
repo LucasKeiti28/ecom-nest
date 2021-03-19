@@ -10,11 +10,12 @@ export class HttpExceptionFilter implements ExceptionFilter {
 
     const errorResponse = {
       code: status,
-      timestamp: new Date().toLocaleDateString(),
+      timestamp: new Date(),
       path: request.url,
       method: request.method,
-      message: status !== HttpStatus.INTERNAL_SERVER_ERROR ? (exception.message || null) :
-      'Internal Server Error'
+      message: status !== HttpStatus.INTERNAL_SERVER_ERROR ? ( exception.message || null) :
+      'Internal Server Error',
+      obs: 'We can add any information here'
     };
 
     return response.status(status).json(errorResponse)
